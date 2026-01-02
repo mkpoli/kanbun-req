@@ -58,7 +58,7 @@
     (bottom: 0.3pt + black)
   },
   align: (x, y) => (
-    if x < 3 { center } else { left }
+    if y == 0 { center } else if x < 3 { center } else { left }
   ),
 )
 
@@ -79,8 +79,8 @@
           "Japanese Name",
           "English Name",
           "Chinese Name",
-          "Japanese Description",
-          "English Description",
+          "Jpn. Description",
+          "Eng. Description",
         ),
       )
       .map(((ja, en)) => ja + linebreak() + en),
