@@ -48,7 +48,9 @@ jobs:
           source_file: |
             main.typ
           features: html
-          options: "--format html"
+          options: |
+            --format
+            html
 
       - name: Move HTML to _site
         run: |
