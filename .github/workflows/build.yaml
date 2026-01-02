@@ -18,6 +18,9 @@ jobs:
         with:
           source_file: |
             main.typ
+          options: |
+            --input
+            commit=${{ github.sha }}
 
       - name: Upload PDF file
         uses: actions/upload-artifact@v4
@@ -52,6 +55,8 @@ jobs:
             html
             --features
             html
+            --input
+            commit=${{ github.sha }}
 
       - name: Move HTML to _site
         run: |
