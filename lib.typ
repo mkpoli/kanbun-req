@@ -10,6 +10,12 @@
   body,
 ) = {
   set document(title: title-ja + " / " + title-en)
+  set page(
+    header: context [
+      #document.title
+    ],
+    numbering: "1",
+  )
 
   title-block(
     (
