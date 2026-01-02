@@ -12,17 +12,29 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        
-      - name: Typst
-        uses: lvignoli/typst-action@main
-        with:
-          source_file: |
-            main.typ
-          options: |
-            --input
-            commit=${{ github.sha }}
 
-      - name: Upload PDF file
+      - name: Setup Typst
+        uses: typst-community/setup-typst@v4
+        with:
+          typst-version: ^0.14.0
+
+      - name: Download fonts
+        run: |
+          mkdir fonts
+          wget -O fonts/PlanschriftP1-Regular.ttf https://github.com/Fitzgerald-Porthmouth-Koenigsegg/Planschrift_Project/releases/download/V0.0.2007-pre/PlanschriftP1-Regular.ttf
+          wget -O fonts/PlanschriftP2-Regular.ttf https://github.com/Fitzgerald-Porthmouth-Koenigsegg/Planschrift_Project/releases/download/V0.0.2007-pre/PlanschriftP2-Regular.ttf
+          wget -O fonts/HaranoAjiMincho-Regular.otf https://github.com/trueroad/HaranoAjiFonts/raw/refs/heads/master/HaranoAjiMincho-Regular.otf
+          wget -O fonts/HaranoAjiMincho-Bold.otf https://github.com/trueroad/HaranoAjiFonts/raw/refs/heads/master/HaranoAjiMincho-Bold.otf
+          wget -O fonts/HaranoAjiGothic-Regular.otf https://github.com/trueroad/HaranoAjiFonts/raw/refs/heads/master/HaranoAjiGothic-Regular.otf
+          wget -O fonts/HaranoAjiGothic-Bold.otf https://github.com/trueroad/HaranoAjiFonts/raw/refs/heads/master/HaranoAjiGothic-Bold.otf
+
+      - name: Compile PDF (Planschrift)
+        run: typst compile main.typ --font-path ./fonts --input commit=${{ github.sha }} kbreq-planschrift.pdf
+
+      - name: Compile PDF (Harano Aji)
+        run: typst compile main.typ --font-path ./fonts --input commit=${{ github.sha }} --input archaism=false kbreq-haranoaji.pdf
+
+      - name: Upload PDF files
         uses: actions/upload-artifact@v4
         with:
           name: PDF
@@ -37,34 +49,38 @@ jobs:
         if: github.ref_type == 'tag'
         with:
           name: "${{ github.ref_name }} — ${{ env.DATE }}"
-          files: main.pdf
+          files: |
+            kbreq-planschrift.pdf
+            kbreq-haranoaji.pdf
 
   build-html:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        
-      - name: Typst
-        uses: lvignoli/typst-action@main
+
+      - name: Setup Typst
+        uses: typst-community/setup-typst@v4
         with:
-          source_file: |
-            main.typ
-          options: |
-            --format
-            html
-            --features
-            html
-            --input
-            commit=${{ github.sha }}
+          typst-version: ^0.14.0
+
+      - name: Download fonts
+        run: |
+          mkdir fonts
+          wget -O fonts/PlanschriftP1-Regular.ttf https://github.com/Fitzgerald-Porthmouth-Koenigsegg/Planschrift_Project/releases/download/V0.0.2007-pre/PlanschriftP1-Regular.ttf
+          wget -O fonts/PlanschriftP2-Regular.ttf https://github.com/Fitzgerald-Porthmouth-Koenigsegg/Planschrift_Project/releases/download/V0.0.2007-pre/PlanschriftP2-Regular.ttf
+          wget -O fonts/HaranoAjiMincho-Regular.otf https://github.com/trueroad/HaranoAjiFonts/raw/refs/heads/master/HaranoAjiMincho-Regular.otf
+          wget -O fonts/HaranoAjiMincho-Bold.otf https://github.com/trueroad/HaranoAjiFonts/raw/refs/heads/master/HaranoAjiMincho-Bold.otf
+          wget -O fonts/HaranoAjiGothic-Regular.otf https://github.com/trueroad/HaranoAjiFonts/raw/refs/heads/master/HaranoAjiGothic-Regular.otf
+          wget -O fonts/HaranoAjiGothic-Bold.otf https://github.com/trueroad/HaranoAjiFonts/raw/refs/heads/master/HaranoAjiGothic-Bold.otf
+
+      - name: Compile HTML
+        run: typst compile main.typ --font-path ./fonts --format html --features html --input commit=${{ github.sha }} kbreq.html
 
       - name: Move HTML to _site
         run: |
           mkdir _site
-          mv main.html _site/index.html
-          # copying other necessary files if any (e.g. images) - assuming standalone or embedded for now, 
-          # otherwise might need to copy the whole directory structure.
-          # For minimal example, just index.html.
+          mv kbreq.html _site/index.html
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
