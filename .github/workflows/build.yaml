@@ -47,9 +47,10 @@ jobs:
         with:
           source_file: |
             main.typ
-          features: html
           options: |
             --format
+            html
+            --features
             html
 
       - name: Move HTML to _site
