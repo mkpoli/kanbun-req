@@ -26,6 +26,16 @@
     numbering: "1",
   )
 
+  set par(
+    first-line-indent: (
+      amount: 1em,
+      all: true,
+    ),
+    justify: true,
+  )
+
+  show heading: set block(spacing: 1em)
+
   title-block(
     (
       title-ja,
