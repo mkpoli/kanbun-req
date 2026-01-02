@@ -10,7 +10,6 @@
 } else {
   (
     "Harano Aji Mincho",
-    "HaranoAjiMinchoBold",
   )
 })
 
