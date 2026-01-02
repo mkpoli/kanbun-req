@@ -1,7 +1,7 @@
 # kanbun-req
 
 訓点漢文組版の要件
-Text Layout Requirements of Kanbun-Kundoku
+Requirements of Annotated Kanbun Text Layout
 
 ## 概要 / Introduction
 
