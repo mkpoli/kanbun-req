@@ -24,3 +24,14 @@ typst compile main.typ --format pdf
 ```bash
 typst compile main.typ --format html --features html
 ```
+
+### ファイル構造 / File Structure
+
+```
+.
+├── sections
+│   └── glossary.typ # 用語表
+├── lib.typ # 共通定義
+├── main.typ # エントリーポイント
+└── README.md # このファイル
+```
