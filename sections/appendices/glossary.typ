@@ -83,7 +83,7 @@
           "English Description",
         ),
       )
-      .map(((ja, en)) => ja + " / " + en),
+      .map(((ja, en)) => ja + linebreak() + en),
   ),
   ..glossary
     .map(glossary => (
@@ -95,5 +95,5 @@
       glossary.desc.ja,
       glossary.desc.en,
     ))
-    .flatten()
+    .flatten(),
 )
