@@ -5,9 +5,18 @@
 }
 
 #let doc(
-  title: none,
+  title-ja: none,
+  title-en: none,
   body,
 ) = {
-  title-block(title)
+  set document(title: title-ja + " / " + title-en)
+
+  title-block(
+    (
+      title-ja,
+      linebreak(),
+      title-en,
+    ).join(),
+  )
   body
 }

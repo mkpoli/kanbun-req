@@ -1,8 +1,8 @@
 #import "./lib.typ": doc
 
 #show: doc.with(
-  title: [訓点漢文組版要件\
-    Requirements for Annotated Kanbun Text Layout],
+  title-ja: "訓点漢文組版要件",
+  title-en: "Requirements for Annotated Kanbun Text Layout",
 )
 
 #set heading(numbering: "A")
