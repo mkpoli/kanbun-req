@@ -18,5 +18,5 @@
 #set heading(numbering: "A")
 
 // Appendices
-= 用語表
+= 用語表 / Glossary
 #include "sections/glossary.typ"
