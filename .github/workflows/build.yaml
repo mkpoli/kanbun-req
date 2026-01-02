@@ -20,7 +20,7 @@ jobs:
 
       - name: Download fonts
         run: |
-          mkdir fonts
+          mkdir -p fonts
           wget -O fonts/PlanschriftP1-Regular.ttf https://github.com/Fitzgerald-Porthmouth-Koenigsegg/Planschrift_Project/releases/download/V0.0.2007-pre/PlanschriftP1-Regular.ttf
           wget -O fonts/PlanschriftP2-Regular.ttf https://github.com/Fitzgerald-Porthmouth-Koenigsegg/Planschrift_Project/releases/download/V0.0.2007-pre/PlanschriftP2-Regular.ttf
           wget -O fonts/HaranoAjiMincho-Regular.otf https://github.com/trueroad/HaranoAjiFonts/raw/refs/heads/master/HaranoAjiMincho-Regular.otf
@@ -66,7 +66,7 @@ jobs:
 
       - name: Download fonts
         run: |
-          mkdir fonts
+          mkdir -p fonts
           wget -O fonts/PlanschriftP1-Regular.ttf https://github.com/Fitzgerald-Porthmouth-Koenigsegg/Planschrift_Project/releases/download/V0.0.2007-pre/PlanschriftP1-Regular.ttf
           wget -O fonts/PlanschriftP2-Regular.ttf https://github.com/Fitzgerald-Porthmouth-Koenigsegg/Planschrift_Project/releases/download/V0.0.2007-pre/PlanschriftP2-Regular.ttf
           wget -O fonts/HaranoAjiMincho-Regular.otf https://github.com/trueroad/HaranoAjiFonts/raw/refs/heads/master/HaranoAjiMincho-Regular.otf
