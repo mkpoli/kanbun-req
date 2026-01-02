@@ -1,7 +1,9 @@
 #let title-block(title) = {
-  set text(size: 1.5em)
+  set text(size: 1.5em, weight: "bold")
   set align(center)
+  v(1em)
   title
+  v(1em)
 }
 
 #let doc(
