@@ -1,5 +1,31 @@
 #import "./lib.typ": doc
 
+#let archaism = not ("archaism" in sys.inputs and sys.inputs.archaism == "false")
+
+#set text(font: if archaism {
+  (
+    "遍玨體P1",
+    "遍玨體P2",
+  )
+} else {
+  (
+    "Harano Aji Mincho",
+    "HaranoAjiMinchoBold",
+  )
+})
+
+#set page(
+  background: if archaism {
+    box(
+      width: 100%,
+      height: 100%,
+      fill: rgb("#f9f2e3"),
+    )
+  } else {
+    none
+  },
+)
+
 #show: doc.with(
   title-ja: "訓点漢文組版要件",
   title-en: "Requirements for Annotated Kanbun Text Layout",

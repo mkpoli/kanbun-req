@@ -15,14 +15,38 @@ This repository serves as a hub for an initiative that documents all requirement
 
 This document is written in Typst and will be distributed in PDF or HTML format automatically by [defined GitHub Actions](.github/workflows/build.yaml).
 
-### 手動プレビュー / Manual Preview
+### フォント / Fonts
 
-```bash
-typst compile main.typ --format pdf
+以下のコマンドを実行することにより、必要なフォントをダウンロードすることができます。
+
+You can download the required fonts by running the following command:
+
+```
+wget -O fonts/PlanschriftP1-Regular.ttf https://github.com/Fitzgerald-Porthmouth-Koenigsegg/Planschrift_Project/releases/download/V0.0.2007-pre/PlanschriftP1-Regular.ttf
+wget -O fonts/PlanschriftP2-Regular.ttf https://github.com/Fitzgerald-Porthmouth-Koenigsegg/Planschrift_Project/releases/download/V0.0.2007-pre/PlanschriftP2-Regular.ttf
+wget -O fonts/HaranoAjiMincho-Regular.otf https://github.com/trueroad/HaranoAjiFonts/raw/refs/heads/master/HaranoAjiMincho-Regular.otf
+wget -O fonts/HaranoAjiMincho-Bold.otf https://github.com/trueroad/HaranoAjiFonts/raw/refs/heads/master/HaranoAjiMincho-Bold.otf
+wget -O fonts/HaranoAjiGothic-Regular.otf https://github.com/trueroad/HaranoAjiFonts/raw/refs/heads/master/HaranoAjiGothic-Regular.otf
+wget -O fonts/HaranoAjiGothic-Bold.otf https://github.com/trueroad/HaranoAjiFonts/raw/refs/heads/master/HaranoAjiGothic-Bold.otf
 ```
 
+### 手動プレビュー / Manual Preview
+
+#### PDFドキュメント
+
+近代活字風ドキュメント
 ```bash
-typst compile main.typ --format html --features html
+typst compile main.typ --font-path ./fonts kbreq-planschrift.pdf
+```
+
+原ノ味明朝ドキュメント
+```bash
+typst compile main.typ --font-path ./fonts --input archaism=false kbreq-haranoaji.pdf
+```
+
+#### HTMLドキュメント
+```bash
+typst compile main.typ --format html --features html kbreq.html
 ```
 
 ### ファイル構造 / File Structure
