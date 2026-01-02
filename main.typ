@@ -26,7 +26,7 @@
 
 // Appendices
 = 用語表 / Glossary
-#include "sections/glossary.typ"
+#include "sections/appendices/glossary.typ"
 
 = 文書情報 / Document Metadata
 
