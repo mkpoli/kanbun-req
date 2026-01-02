@@ -2,7 +2,7 @@
 
 #show: doc.with(
   title: [訓点漢文組版要件\
-    Requirements of Annotated Kanbun Text Layout],
+    Requirements for Annotated Kanbun Text Layout],
 )
 
 #set heading(numbering: "A")
