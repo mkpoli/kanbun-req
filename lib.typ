@@ -6,9 +6,16 @@
   v(1em)
 }
 
+#let authors-block(authors) = {
+  set align(center)
+  authors.join(", ")
+  v(2em)
+}
+
 #let doc(
   title-ja: none,
   title-en: none,
+  editors: (),
   body,
 ) = {
   set document(title: title-ja + " / " + title-en)
@@ -26,5 +33,7 @@
       title-en,
     ).join(),
   )
+
+  authors-block(editors)
   body
 }
