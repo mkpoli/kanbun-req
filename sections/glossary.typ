@@ -1,0 +1,99 @@
+#let glossary = (
+  (
+    "name": (
+      "ja": (
+        "漢文",
+      ),
+      "en": ("Literary Chinese texts",),
+      "zh": ("文言文",),
+    ),
+    "desc": (
+      "ja": "古典中国語によって書かれた文章。",
+      "en": "Texts written in Classical Chinese.",
+    ),
+  ),
+  (
+    "name": (
+      "ja": (
+        "古典中国語",
+      ),
+      "en": ("Classical Chinese",),
+      "zh": ("文言", "古典漢語"),
+    ),
+    "desc": (
+      "ja": "古代中国の文語体。",
+      "en": "Ancient Chinese literary language.",
+    ),
+  ),
+  (
+    "name": (
+      "ja": (
+        "漢籍",
+      ),
+      "en": ("Chinese classics", "classics of Chinese literature"),
+      "zh": ("中國古籍",),
+    ),
+    "desc": (
+      "ja": "中国の古典書籍。",
+      "en": "Classical Chinese texts.",
+    ),
+  ),
+  (
+    "name": (
+      "ja": ("漢文訓読",),
+      "en": ("Kanbun Kundoku",),
+      "zh": ("漢文訓讀",),
+    ),
+    "desc": (
+      "ja": "古典中国語を日本語で読み解く方法。",
+      "en": "Method of reading Classical Chinese in Japanese.",
+    ),
+  ),
+)
+
+#set table(
+  stroke: (x, y) => if y == 0 {
+    (bottom: 0.7pt + black)
+  } else {
+    (bottom: 0.3pt + black)
+  },
+  align: (x, y) => (
+    if x < 3 { center } else { left }
+  ),
+)
+
+#show table.cell.where(y: 0): strong
+#table(
+  columns: 5,
+  table.header(
+    ..array
+      .zip(
+        (
+          "日本語名",
+          "英語名",
+          "中国語名",
+          "日本語説明",
+          "英語説明",
+        ),
+        (
+          "Japanese Name",
+          "English Name",
+          "Chinese Name",
+          "Japanese Description",
+          "English Description",
+        ),
+      )
+      .map(((ja, en)) => ja + " / " + en),
+  ),
+  ..glossary
+    .map(glossary => (
+      (
+        glossary.name.ja,
+        glossary.name.en,
+        glossary.name.zh,
+      ).map(name => name.join("\n")),
+      glossary.desc.ja,
+      glossary.desc.en,
+    ))
+    .flatten()
+)
