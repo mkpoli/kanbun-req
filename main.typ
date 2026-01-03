@@ -2,16 +2,19 @@
 
 #let archaism = not ("archaism" in sys.inputs and sys.inputs.archaism == "false")
 
-#set text(font: if archaism {
-  (
-    "遍玨體P1",
-    "遍玨體P2",
-  )
-} else {
-  (
-    "Harano Aji Mincho",
-  )
-})
+#set text(
+  font: if archaism {
+    (
+      "遍玨體P1",
+      "遍玨體P2",
+    )
+  } else {
+    (
+      "Harano Aji Mincho",
+    )
+  },
+  lang: "ja",
+)
 
 #set page(
   background: if archaism {
