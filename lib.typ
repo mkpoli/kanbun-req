@@ -48,6 +48,7 @@
   body
 
   if appendices != none {
+    title-block("付録 / Appendices")
     appendices
   }
 }
