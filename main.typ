@@ -39,14 +39,14 @@
 
 この文章は、訓点漢文の組版にあたって求められる事項について説明するものである。なお、訓点漢文を組版するあらゆる事項について網羅的に説明するものではなく、一般的な日本語組版処理の要件と異なるものを中心に、訓点漢文の組版に必要と思われるものを言及するものである。したがって、本文章の要求を実装することで、訓点漢文の組版のほとんどの需要を満たすことができる。また、訓点漢文の組版にあたって表現される慣行について記述するものであり、具体的な実装については考慮しないものとする。よって、本文章は概ねW3Cの「_Requirements for Japanese Text Layout_ 日本語組版処理の要件」（jlreq）の体裁に沿って、訓点漢文に特化した記述を行うものである。
 
-== 訓点漢文の文字
+= 訓点漢文の文字 / Characters of Annotated Kanbun Text
 
 一般的な日本語組版と同様、#link("https://www.w3.org/International/jlreq/#cl-19")[漢字等（jlreq:cl-19）]、#link("https://www.w3.org/International/jlreq/#cl-15")[平仮名（jlreq:cl-15）]及び#link("https://www.w3.org/International/jlreq/#cl-16")[片仮名（jlreq:cl-16）]が使用され、それに加えてUnicode漢文記号（@kanbun-block-chars）が利用される場合もある。
 
 #counter(heading).update(0)
 #set heading(numbering: "A.1.")
 
-= 文字表
+= 文字表 / Characters Table
 #include "sections/appendices/characters.typ"
 
 // Appendices
