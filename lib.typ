@@ -3,6 +3,7 @@
   title-ja: none,
   title-en: none,
   editors: (),
+  appendices: none,
   body,
 ) = {
   set document(title: title-ja + " / " + title-en)
@@ -45,4 +46,8 @@
   }
   authors-block(editors)
   body
+
+  if appendices != none {
+    appendices
+  }
 }
