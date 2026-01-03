@@ -1,3 +1,14 @@
+#let g(term) = context {
+  show ref: it => {
+    if it.element == none {
+      return it
+    }
+    show link: set text(fill: orange)
+    link(it.element.location(), it.element.body)
+  }
+
+  ref(label("glossary:" + term))
+}
 
 #let doc(
   title-ja: none,
@@ -23,6 +34,17 @@
   )
 
   show heading: set block(spacing: 1em)
+  show link: set text(fill: rgb("#144a9a"))
+  show ref: set text(fill: rgb("#144a9a"))
+
+  show ref: it => {
+    if it.element != none and it.element.func() == figure and it.element.at("kind", default: none) == "glossary" {
+      set text(fill: orange)
+      link(it.element.location(), it.element.body)
+    } else {
+      it
+    }
+  }
 
   let title-block(title) = {
     set text(size: 1.5em, weight: "bold")

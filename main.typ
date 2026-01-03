@@ -1,4 +1,4 @@
-#import "./lib.typ": doc
+#import "./lib.typ": doc, g
 
 #let archaism = not ("archaism" in sys.inputs and sys.inputs.archaism == "false")
 
