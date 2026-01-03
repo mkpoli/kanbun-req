@@ -1,5 +1,7 @@
 # kanbun-req
 
+![WIP](https://img.shields.io/badge/status-WIP-yellow)
+
 訓点漢文組版の要件
 Requirements for Annotated Kanbun Text Layout
 
