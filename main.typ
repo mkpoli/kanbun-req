@@ -43,20 +43,4 @@
 
 一般的な日本語組版と同様、#link("https://www.w3.org/International/jlreq/#cl-19")[漢字等（jlreq:cl-19）]、#link("https://www.w3.org/International/jlreq/#cl-15")[平仮名（jlreq:cl-15）]及び#link("https://www.w3.org/International/jlreq/#cl-16")[片仮名（jlreq:cl-16）]が使用され、それに加えてUnicode漢文記号（@kanbun-block-chars）が利用される場合もある。
 
-#counter(heading).update(0)
-#set heading(numbering: "A.1.")
-
-= 文字表 / Characters Table
-#include "sections/appendices/characters.typ"
-
-// Appendices
-= 用語表 / Glossary
-#include "sections/appendices/glossary.typ"
-
-= 文書情報 / Document Metadata
-
-This document is compiled by Typst v#sys.version.
-
-#if "commit" in sys.inputs [
-  Current commit: #link("https://github.com/mkpoli/kanbun-req/commit/" + sys.inputs.commit, raw(sys.inputs.commit))
-]
+#include "sections/appendices.typ"
