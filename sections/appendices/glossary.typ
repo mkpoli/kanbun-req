@@ -1,9 +1,7 @@
 #let glossary = (
   (
     "name": (
-      "ja": (
-        "漢文",
-      ),
+      "ja": ("漢文",),
       "en": ("Literary Chinese texts",),
       "zh": ("文言文",),
     ),
@@ -14,9 +12,7 @@
   ),
   (
     "name": (
-      "ja": (
-        "古典中国語",
-      ),
+      "ja": ("古典中国語",),
       "en": ("Classical Chinese",),
       "zh": ("文言", "古典漢語"),
     ),
@@ -27,9 +23,7 @@
   ),
   (
     "name": (
-      "ja": (
-        "漢籍",
-      ),
+      "ja": ("漢籍",),
       "en": ("Chinese classics", "classics of Chinese literature"),
       "zh": ("中國古籍",),
     ),
@@ -47,6 +41,28 @@
     "desc": (
       "ja": "古典中国語を日本語で読み解く方法。",
       "en": "Method of reading Classical Chinese in Japanese.",
+    ),
+  ),
+  (
+    "name": (
+      "ja": ("ベタ組",),
+      "en": ("solid setting",),
+      "zh": ("密排",),
+    ),
+    "desc": (
+      "ja": "漢字の間に余白を置かない組版方法。",
+      "en": "Typesetting characters without spaces between them.",
+    ),
+  ),
+  (
+    "name": (
+      "ja": ("アキ組",),
+      "en": ("fixed spacing setting",),
+      "zh": ("疏排",),
+    ),
+    "desc": (
+      "ja": "漢字の間に固定の字間余白を置く組版方法。",
+      "en": "Typesetting characters with fixed inter-character spacing in between.",
     ),
   ),
 )
@@ -91,7 +107,11 @@
         glossary.name.ja,
         glossary.name.en,
         glossary.name.zh,
-      ).map(name => name.join("\n")),
+      ).map(name => if type(name) == str or type(name) == content [
+        #figure(name, kind: "glossary", supplement: "用語") #label("glossary-" + name)
+      ] else if type(name) == array [
+        #figure(name.join("\n"), kind: "glossary", supplement: "用語") #label("glossary:" + name.at(0))
+      ] else { panic("Invalid glossary name, expected str, content or array, got " + str(type(name))) }),
       glossary.desc.ja,
       glossary.desc.en,
     ))
