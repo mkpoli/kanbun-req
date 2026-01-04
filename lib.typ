@@ -1,3 +1,7 @@
+#import "@preview/rubby:0.10.2": get-ruby
+
+#let ruby = get-ruby()
+
 #let g(term) = context {
   show ref: it => {
     if it.element == none {

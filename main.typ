@@ -1,4 +1,4 @@
-#import "./lib.typ": doc, g
+#import "./lib.typ": doc, g, ruby
 #import "hundouk/src/lib.typ": kanbun
 #let archaism = not ("archaism" in sys.inputs and sys.inputs.archaism == "false")
 
@@ -45,7 +45,12 @@
 
 = 訓点漢文の文字 / Characters of Annotated Kanbun Text
 
-一般的な日本語組版と同様、#link("https://www.w3.org/International/jlreq/#cl-19")[漢字等（jlreq:cl-19）]、#link("https://www.w3.org/International/jlreq/#cl-15")[平仮名（jlreq:cl-15）]及び#link("https://www.w3.org/International/jlreq/#cl-16")[片仮名（jlreq:cl-16）]が使用され、それに加えてUnicode漢文記号（@kanbun-block-chars）が利用される場合もある。
+一般的な日本語組版と同様、#link("https://www.w3.org/International/jlreq/#cl-19")[漢字等（jlreq:cl-19）]、#link("https://www.w3.org/International/jlreq/#cl-15")[平仮名（jlreq:cl-15）]及び#link("https://www.w3.org/International/jlreq/#cl-16")[片仮名（jlreq:cl-16）]が使用され、それに加えてUnicode漢文記号（@kanbun-block-chars）が利用される場合もある。現代の訓点漢文において一般的に、例えば#[@fig:sinobazu]のように、白文は#link("https://www.w3.org/International/jlreq/#cl-19")[漢字等（jlreq:cl-19）]、振り仮名（よみがな、ルビー）は#link("https://www.w3.org/International/jlreq/#cl-15")[平仮名（jlreq:cl-15）]、送り仮名は#link("https://www.w3.org/International/jlreq/#cl-16")[片仮名（jlreq:cl-16）]、返点は漢文記号（@kanbun-block-chars）、またはそれに相当する元の文字が使用される（特に「五」など、珍しいが漢文記号に収録されていないものは漢字を使う他ない）。
+
+#figure(
+  caption: [「#ruby[しのばずのいけ][不忍池]」（東京都台東区の地名）],
+  kanbun("不(ず)[レ]忍(しの)バノ池(いけ)"),
+) <fig:sinobazu>
 
 = 文字配置 / Character Placement
 
