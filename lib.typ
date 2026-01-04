@@ -74,6 +74,7 @@
   body
 
   if appendices != none {
+    pagebreak(weak: true)
     title-block("付録 / Appendices")
     appendices
   }
