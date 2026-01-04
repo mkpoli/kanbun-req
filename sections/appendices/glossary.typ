@@ -60,18 +60,36 @@
     ),
     ..glossary-data
       .map(glossary => {
-        let term = glossary.name.ja.at(0)
+        let term = if type(glossary.name.ja) == array {
+          glossary.name.ja.at(0)
+        } else {
+          glossary.name.ja
+        }
 
         return (
           (
             glossary.name.ja,
             glossary.name.en,
             glossary.name.zh,
-          ).map(name => if type(name) == str or type(name) == content [
-            #figure(name, kind: "glossary", supplement: "用語") #label("glossary-" + name)
-          ] else if type(name) == array [
-            #figure(name.join("\n"), kind: "glossary", supplement: "用語") #label("glossary:" + name.at(0))
-          ] else { panic("Invalid glossary name, expected str, content or array, got " + str(type(name))) })
+          )
+            .enumerate()
+            .map(((i, name)) => {
+              let content = if type(name) == str or type(name) == content {
+                name
+              } else if type(name) == array {
+                name.join("\n")
+              } else {
+                panic("Invalid glossary name, expected str, content or array, got " + str(type(name)))
+              }
+
+              if i == 0 [
+                #figure(content, kind: "glossary", supplement: "用語") #label(
+                  "glossary:" + if type(name) == array { name.at(0) } else { name },
+                )
+              ] else {
+                content
+              }
+            })
             + (
               glossary.desc.ja
                 + context {
