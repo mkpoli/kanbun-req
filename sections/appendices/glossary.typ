@@ -81,7 +81,7 @@
                   let first = name.at(0)
                   let rest = name.slice(1)
                   [
-                    #figure(first, kind: "glossary", supplement: "用語") #label("glossary:" + first)
+                    #box[#figure(first, kind: "glossary", supplement: "用語") #label("glossary:" + first)]
                     #linebreak()
                     #rest.join(linebreak())
                   ]
