@@ -87,3 +87,33 @@ The PDF version of this document is distributed on #link("https://github.com/mkp
   ),
 )
 
+== 縦組と横組 / Vertical and Horizontal Writing Mode
+
+訓点漢文は基本的に#g("縦組")を採用するが、組版環境の制約などによっては#g("横組")を採用する場合もある。
+
+#let 靜夜思 = "床前看[二]ル月光ヲ[一]，
+ 疑ウラクハ[二]是レ地上ノ霜カト[一]。
+ 舉[レ]ゲテ頭ヲ望ム[二]山月ヲ[一]，
+  低[レ]レテ頭ヲ思フ[二]故鄕ヲ[一]。"
+#grid(
+  columns: 2,
+  figure(
+    caption: "縦組の「静夜思」",
+    gap: 2em,
+    kanbun(
+      height: 12em,
+      靜夜思,
+      tight: false,
+      use-unicode-kanbun: false,
+    ),
+  ),
+  figure(
+    caption: "横組の「静夜思」",
+    gap: 2em,
+    kanbun(
+      靜夜思,
+      writing-direction: ltr,
+      use-unicode-kanbun: false,
+    ),
+  ),
+)

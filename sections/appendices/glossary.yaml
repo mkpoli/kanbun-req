@@ -92,3 +92,22 @@
   desc:
     ja: 漢字の間に固定の字間余白を置く組版方法。
     en: Typesetting characters with fixed inter-character spacing in between.
+- name:
+    ja:
+      - 縦組
+      - 縦書き
+    en: Vertical writing mode
+    zh: 
+      - 豎排
+      - 直排
+  desc:
+    ja: 文字を縦方向に上から下に並べ、また行を右から左に並べる組版方法。
+    en: Typesetting characters vertically from top to bottom and lines from right to left.
+- name:
+    ja: 横組
+    en: horizontal writing mode
+    zh: 橫排
+  desc:
+    ja: 文字を横方向に左から右に並べ、また行を上から下に並べる組版方法。
+    en: Typesetting characters horizontally from left to right and lines from top to bottom.
+
