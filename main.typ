@@ -117,3 +117,15 @@ The PDF version of this document is distributed on #link("https://github.com/mkp
     ),
   ),
 )
+
+== 振り仮名と送り仮名 / Furigana and Okurigana
+
+== 返点 / Kaeriten
+
+== 約物 / Punctuations
+
+=== 句読点 / Periods and Commas
+
+=== 疑問符・感嘆符 / Question Mark and Exclamation Mark
+
+=== コロン・セミコロン / Colon and Semicolon
