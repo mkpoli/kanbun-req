@@ -46,7 +46,7 @@ The PDF version of this document is distributed on #link("https://github.com/mkp
 
 = 緒論 / Introduction
 
-この文書は、#g("訓点漢文")の組版にあたって求められる事項について説明するものである。なお、訓点漢文を組版するあらゆる事項について網羅的に説明するものではなく、一般的な日本語組版処理の要件と異なるものを中心に、訓点漢文の組版に必要と思われるものを言及するものである。したがって、本文書の要求を実装することで、訓点漢文の組版のほとんどの需要を満たすことができる。また、訓点漢文の組版にあたって表現される慣行について記述するものであり、具体的な実装については考慮しないものとする。よって、本文書は概ねW3Cの「_Requirements for Japanese Text Layout_ 日本語組版処理の要件」（jlreq）の体裁に沿って、訓点漢文に特化した記述を行うものである。
+この文書は、#g("訓点漢文")の組版にあたって求められる事項について説明するものである。なお、訓点漢文を組版するあらゆる事項について網羅的に説明するものではなく、一般的な日本語組版処理の要件と異なるものを中心に、訓点漢文の組版に必要と思われるものを言及するものである。したがって、本文書の要求を実装することで、訓点漢文の組版のほとんどの需要を満たすことができる。また、訓点漢文の組版にあたって表現される慣行について記述するものであり、具体的な実装については考慮しないものとする。よって、本文書は概ねW3Cの「_Requirements for Japanese Text Layout_ 日本語組版処理の要件」（jlreq）#[@jlreq]の体裁に沿って、訓点漢文に特化した記述を行うものである。
 
 = 訓点漢文の文字 / Characters of Annotated Kanbun Text
 
@@ -129,3 +129,5 @@ The PDF version of this document is distributed on #link("https://github.com/mkp
 === 疑問符・感嘆符 / Question Mark and Exclamation Mark
 
 === コロン・セミコロン / Colon and Semicolon
+
+#bibliography("refs.yml", title: "参考文献 / Bibliography", style: "american-chemical-society")
