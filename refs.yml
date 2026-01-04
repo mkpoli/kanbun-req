@@ -1,0 +1,32 @@
+# W3C Requirements for Japanese Text Layout
+jlreq:
+  type: Report
+  title: Requirements for Japanese Text Layout
+  author: ["千葉, 弘幸", "枝本, 順三郎", "Ishida, Richard", "石野, 恵一郎", "加藤, 誠一", "小林, 龍生", "小林, 敏", "McCully, Nathaniel", "小野澤, 賢三", "Sasaki, Felix", "下農, 淳司", "塩澤, 元", "薛, 富僑", "阿南, 康宏"]
+  date: 2020-08-11
+  institution: W3C
+  publisher: W3C
+  url: https://www.w3.org/TR/jlreq/
+  language: en
+
+# JAGAT Article on Kanbun Punctuation
+kobayashi_kanbun_haichi:
+  type: Web
+  title: 漢文の句読点や返り点の配置処理
+  author: ["小林, 敏"]
+  url: https://www.jagat.or.jp/archives/21315
+  publisher: Japan Association of Graphic Arts Technology
+
+# gckanbun Package
+gckanbun:
+  type: Web
+  title: "LaTeX gckanbun package"
+  url: https://ctan.org/pkg/gckanbun
+
+# Fujita (1999) Kanbun Typesetting
+fujita1999kanbun:
+  type: Web
+  title: 漢文の訓点文の組版
+  author: ["藤田, 眞作"]
+  date: 1999
+  url: http://xymtex.com/fujitas/kanbun/kanbunex.html
