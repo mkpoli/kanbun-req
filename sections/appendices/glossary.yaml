@@ -1,18 +1,27 @@
 - name:
-    ja:
-      - 漢文
-    en:
-      - Literary Chinese texts
-    zh:
-      - 文言文
+    ja: 漢文
+    en: Literary Chinese texts
+    zh: 文言文
   desc:
     ja: 古典中国語によって書かれた文章。
     en: Texts written in Classical Chinese.
 - name:
-    ja:
-      - 古典中国語
-    en:
-      - Classical Chinese
+    ja: 訓点
+    en: Kunten
+    zh: 訓點
+  desc:
+    ja: 漢文訓読を行うために漢字に付与するあらゆる補助記号。
+    en: Any auxiliary symbols attached to kanji for kanbun kundoku.
+- name:
+    ja: 訓点漢文
+    en: Annotated Kanbun
+    zh: 訓點漢文
+  desc:
+    ja: 訓点を施した漢文。
+    en: Kanbun text with kunten annotations.
+- name:
+    ja: 古典中国語
+    en: Classical Chinese
     zh:
       - 文言
       - 古典漢語
@@ -20,43 +29,66 @@
     ja: 古代中国の文語体。
     en: Ancient Chinese literary language.
 - name:
-    ja:
-      - 漢籍
+    ja: 漢籍
     en:
       - Chinese classics
       - classics of Chinese literature
-    zh:
-      - 中國古籍
+    zh: 中國古籍
   desc:
     ja: 中国の古典書籍。
     en: Classical Chinese texts.
 - name:
-    ja:
-      - 漢文訓読
-    en:
-      - Kanbun Kundoku
-    zh:
-      - 漢文訓讀
+    ja: 漢文訓読
+    en: Kanbun Kundoku
+    zh: 漢文訓讀
   desc:
     ja: 古典中国語を日本語で読み解く方法。
     en: Method of reading Classical Chinese in Japanese.
+- name: 
+    ja: 白文
+    en: Hakubun
+    zh: 白文
+  desc:
+    ja: 記号が付けられていない漢文。
+    en: Kanbun text without any annotations.
+- name:
+    ja: 返点
+    en: Kaeriten
+    zh: 返點
+  desc:
+    ja: 漢文を読む順番を示す補助記号。順番をひっくり返すものや、優先度ごとに順序を示すものがある。
+    en: Auxiliary symbols attached to kanji in annotated kanbun, which indicate the reading order of kanbun text. Some of them reverse the reading order, and some of them indicate the reading order based on priority.
 - name:
     ja:
-      - ベタ組
+      - 振り仮名
+      - 読み仮名
+      - ルビー
     en:
-      - solid setting
-    zh:
-      - 密排
+      - Furigana
+      - Ruby
+      - Readings
+    zh: 振假名
+  desc:
+    ja: 漢字の読みを示す補助記号。
+    en: Auxiliary symbols for displaying the reading of the Chinese character.
+- name:
+    ja: 送り仮名
+    en: Okurigana
+    zh: 送假名
+  desc:
+    ja: 漢字の後に添える仮名で、助詞や活用語尾の変化などを示すもの。
+    en: Kana attached to the end of a kanji to indicate the postposition or the change of the ending of a verb or adjective.
+- name:
+    ja: ベタ組
+    en: solid setting
+    zh: 密排
   desc:
     ja: 漢字の間に余白を置かない組版方法。
     en: Typesetting characters without spaces between them.
 - name:
-    ja:
-      - アキ組
-    en:
-      - fixed spacing setting
-    zh:
-      - 疏排
+    ja: アキ組
+    en: fixed spacing setting
+    zh: 疏排
   desc:
     ja: 漢字の間に固定の字間余白を置く組版方法。
     en: Typesetting characters with fixed inter-character spacing in between.
