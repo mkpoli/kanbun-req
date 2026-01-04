@@ -74,20 +74,30 @@
           )
             .enumerate()
             .map(((i, name)) => {
-              let content = if type(name) == str or type(name) == content {
-                name
-              } else if type(name) == array {
-                name.join("\n")
+              if i == 0 {
+                // For Japanese name column
+                if type(name) == array {
+                  // Only label the first item
+                  let first = name.at(0)
+                  let rest = name.slice(1)
+                  [
+                    #figure(first, kind: "glossary", supplement: "用語") #label("glossary:" + first)
+                    #linebreak()
+                    #rest.join(linebreak())
+                  ]
+                } else {
+                  // Label the single string
+                  [
+                    #figure(name, kind: "glossary", supplement: "用語") #label("glossary:" + name)
+                  ]
+                }
               } else {
-                panic("Invalid glossary name, expected str, content or array, got " + str(type(name)))
-              }
-
-              if i == 0 [
-                #figure(content, kind: "glossary", supplement: "用語") #label(
-                  "glossary:" + if type(name) == array { name.at(0) } else { name },
-                )
-              ] else {
-                content
+                // For other columns (English, Chinese)
+                if type(name) == array {
+                  name.join(linebreak())
+                } else {
+                  name
+                }
               }
             })
             + (
