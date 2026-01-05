@@ -1,4 +1,4 @@
-#import "./lib.typ": doc, g, ruby
+#import "./lib.typ": doc, g, i, ruby
 #import "hundouk/src/lib.typ": kanbun
 #let archaism = not ("archaism" in sys.inputs and sys.inputs.archaism == "false")
 
@@ -56,6 +56,14 @@ The PDF version of this document is distributed on #link("https://github.com/mkp
   caption: [「#ruby[しのばずのいけ][不忍池]」（東京都台東区の地名）],
   kanbun("不(ず)ノ[レ]忍(しの)バ池(いけ)"),
 ) <fig:sinobazu>
+
+== 縦組の字形 / Character Shape in Vertical Writing
+
+縦組と横組とでは、文字の形が異なる場合がある。
+
+#i[
+  OpenTypeフォントではOpenType機能の`vert`フラグによって実装されることが多い。
+]
 
 = 文字配置 / Character Placement
 

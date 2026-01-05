@@ -14,6 +14,20 @@
   ref(label("glossary:" + term))
 }
 
+/// Information Box
+#let i(body) = {
+  block(
+    fill: rgb("#7be0ff28"),
+    stroke: rgb("#ccc") + 1pt,
+    inset: 1em,
+    {
+      [註 Notice]
+      linebreak()
+      body
+    },
+  )
+}
+
 #let doc(
   title-ja: none,
   title-en: none,
