@@ -54,7 +54,7 @@ The PDF version of this document is distributed on #link("https://github.com/mkp
 
 #figure(
   caption: [「#ruby[しのばずのいけ][不忍池]」（東京都台東区の地名）],
-  kanbun("不(ず)[レ]忍(しの)バノ池(いけ)"),
+  kanbun("不(ず)ノ[レ]忍(しの)バ池(いけ)"),
 ) <fig:sinobazu>
 
 = 文字配置 / Character Placement
