@@ -67,7 +67,7 @@ The PDF version of this document is distributed on #link("https://github.com/mkp
 #grid(
   columns: 2,
   figure(
-    caption: "ベタ組の「登鸛雀樓」",
+    caption: "ベタ組の〔唐〕王之渙『登鸛鵲樓』",
     gap: 2em,
     kanbun(
       height: 10em,
@@ -76,7 +76,7 @@ The PDF version of this document is distributed on #link("https://github.com/mkp
     ),
   ),
   figure(
-    caption: "アキ組の「登鸛雀樓」",
+    caption: "アキ組の〔唐〕王之渙『登鸛鵲樓』",
     gap: 2em,
     kanbun(
       height: 12em,
