@@ -71,7 +71,7 @@ The PDF version of this document is distributed on #link("https://github.com/mkp
 
 一般的な日本語組版は、#g("ベタ組")を基本にするのに対し、訓点漢文の組版はベタ組の他に、#g("アキ組")も常用される。
 
-#let 登鸛雀樓 = "白日依リテ[レ]山ニ盡キ，黃河入リテ[レ]海ニ流ル。欲シ[二]窮メント[一]千里ノ目ヲ，更ニ上ル一層ノ樓。"
+#let 登鸛鵲楼 = "白日依リテ[レ]山ニ盡キ，黃河入リテ[レ]海ニ流ル。欲シ[二]窮メント[一]千里ノ目ヲ，更ニ上ル一層ノ樓。"
 #grid(
   columns: 2,
   figure(
@@ -79,7 +79,7 @@ The PDF version of this document is distributed on #link("https://github.com/mkp
     gap: 2em,
     kanbun(
       height: 10em,
-      登鸛雀樓,
+      登鸛鵲楼,
       use-unicode-kanbun: false,
     ),
   ),
@@ -88,7 +88,7 @@ The PDF version of this document is distributed on #link("https://github.com/mkp
     gap: 2em,
     kanbun(
       height: 12em,
-      登鸛雀樓,
+      登鸛鵲楼,
       tight: false,
       use-unicode-kanbun: false,
     ),
