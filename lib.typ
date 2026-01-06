@@ -92,9 +92,15 @@
   )
 
   let authors-block(authors) = {
-    set align(center)
-    authors.join(", ")
-    v(2em)
+    // HTML element for authors
+    html.elem("div", attrs: (class: "author"), authors.join(", "))
+
+    // PDF styling
+    if sys.inputs.at("target", default: none) != "html" {
+      set align(center)
+      authors.join(", ")
+      v(2em)
+    }
   }
   authors-block(editors)
   body
