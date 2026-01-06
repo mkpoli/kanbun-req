@@ -1,7 +1,8 @@
 ---
+import type { TypstDocInput } from "astro-typst/dist/lib/prelude";
 import { Typst } from "astro-typst/src/components";
 
-const typstInput = {
+const typstInput: TypstDocInput = {
 	mainFilePath: "main.typ",
 	inputs: {
 		target: "html",
@@ -74,11 +75,46 @@ const typstInput = {
 				padding: 0.5rem;
 				text-align: left;
 			}
+			.author {
+				text-align: center;
+				font-size: 1.1rem;
+				margin-bottom: 2rem;
+			}
 			/* Specific adjustments for the characters table alignment if possible, 
 			   but generic center/left logic is a safe baseline. */ 
 		</style>
 	</head>
 	<body>
-		<Typst input={typstInput} target="html" />
+		{/* @ts-ignore: htmlMode is not in the type definition but is supported by the renderer */}
+		<Typst input={typstInput} htmlMode="text" target="html" />
+		<script>
+			// Inline SVG images to allow CSS styling
+			document.addEventListener("DOMContentLoaded", () => {
+				const images = document.querySelectorAll('img[src^="data:image/svg+xml"]');
+				images.forEach(async (img) => {
+					try {
+						const src = img.getAttribute("src");
+						if (!src) return;
+						
+						const res = await fetch(src);
+						const text = await res.text();
+						
+						const parser = new DOMParser();
+						const doc = parser.parseFromString(text, "image/svg+xml");
+						const svg = doc.querySelector("svg");
+						
+						if (svg && img.parentNode) {
+							// Copy attributes if needed (e.g., classes)
+							if (img.className) svg.setAttribute("class", img.className);
+							if (img.id) svg.setAttribute("id", img.id);
+							
+							img.parentNode.replaceChild(svg, img);
+						}
+					} catch (e) {
+						console.error("Failed to inline SVG:", e);
+					}
+				});
+			});
+		</script>
 	</body>
 </html>
