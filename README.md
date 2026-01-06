@@ -48,7 +48,8 @@ typst compile main.typ --font-path ./fonts --input archaism=false kbreq-haranoaj
 
 #### HTMLドキュメント
 ```bash
-typst compile main.typ --format html --features html kbreq.html
+bun install
+bun run build
 ```
 
 ### ファイル構造 / File Structure

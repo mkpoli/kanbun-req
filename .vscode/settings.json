@@ -1,5 +1,8 @@
 {
-    "tinymist.fontPaths": [
-        "./fonts"
-    ]
+	"tinymist.fontPaths": ["./fonts"],
+	"tinymist.previewFeature": "enable",
+	"tinymist.typstExtraArgs": ["--features", "html"],
+	"[javascript][typescript]": {
+		"editor.defaultFormatter": "biomejs.biome"
+	}
 }

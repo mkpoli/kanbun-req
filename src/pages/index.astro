@@ -1,0 +1,29 @@
+---
+import Doc from "../../main.typ";
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" /> -->
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro</title>
+		<style is:global>
+			body {
+				display: flex;
+				flex-direction: column;
+			}
+			a[href^="http"] {
+				text-decoration: none;
+			}
+			a[href^="#"] {
+				color: orange;
+			}
+			.typst-frame { margin: auto } 
+		</style>
+	</head>
+	<body>
+		<Doc/>
+	</body>
+</html>

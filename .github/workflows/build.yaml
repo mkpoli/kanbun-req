@@ -63,10 +63,13 @@ jobs:
         with:
           submodules: 'recursive'
 
-      - name: Setup Typst
-        uses: typst-community/setup-typst@v4
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v2
         with:
-          typst-version: ^0.14.0
+          bun-version: latest
+
+      - name: Install dependencies
+        run: bun install --frozen-lockfile
 
       - name: Download fonts
         run: |
@@ -78,18 +81,13 @@ jobs:
           wget -O fonts/HaranoAjiGothic-Regular.otf https://github.com/trueroad/HaranoAjiFonts/raw/refs/heads/master/HaranoAjiGothic-Regular.otf
           wget -O fonts/HaranoAjiGothic-Bold.otf https://github.com/trueroad/HaranoAjiFonts/raw/refs/heads/master/HaranoAjiGothic-Bold.otf
 
-      - name: Compile HTML
-        run: typst compile main.typ --font-path ./fonts --format html --features html --input commit=${{ github.sha }} kbreq.html
-
-      - name: Move HTML to _site
-        run: |
-          mkdir _site
-          mv kbreq.html _site/index.html
+      - name: Build with Astro
+        run: bun run build
 
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: _site
+          path: dist
 
   deploy-pages:
     needs: build-html
