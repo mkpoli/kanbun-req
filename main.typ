@@ -165,7 +165,7 @@ The PDF version of this document is distributed on #link("https://github.com/mkp
 
 
 
-== アキ組とベタ組 / Akigumi and Betagumi
+== ベタ組とアキ組 / Solid Setting and Fixed Spacing Setting
 
 一般的な日本語組版は、#g("ベタ組")を基本にするのに対し、訓点漢文の組版はベタ組の他に、#g("アキ組")も常用される。
 
