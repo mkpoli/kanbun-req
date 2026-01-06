@@ -13,14 +13,62 @@ import Doc from "../../main.typ";
 			body {
 				display: flex;
 				flex-direction: column;
+				font-family: "Harano Aji Mincho", "Noto Serif CJK JP", serif;
+				line-height: 1.6;
+				max-width: 800px;
+				margin: 0 auto;
+				padding: 2rem;
+				color: #333;
 			}
 			a[href^="http"] {
 				text-decoration: none;
+				color: #144a9a;
 			}
 			a[href^="#"] {
 				color: orange;
+				text-decoration: none;
 			}
-			.typst-frame { margin: auto } 
+			.typst-frame { margin: auto }
+
+			/* Heading Styles */
+			h1 {
+				text-align: center;
+				font-size: 1.8rem;
+				margin-top: 2rem;
+				margin-bottom: 1.5rem;
+			}
+			h2 {
+				font-size: 1.4rem;
+				margin-top: 1.5rem;
+				margin-bottom: 1rem;
+				border-bottom: 1px solid #eee;
+				padding-bottom: 0.3rem;
+			}
+			h3 {
+				font-size: 1.2rem;
+				margin-top: 1.2rem;
+				margin-bottom: 0.8rem;
+			}
+
+			/* Table Styles */
+			table {
+				border-collapse: collapse;
+				width: 100%;
+				margin: 1.5rem 0;
+			}
+			th {
+				border-bottom: 2px solid black;
+				padding: 0.5rem;
+				text-align: center;
+				font-weight: bold;
+			}
+			td {
+				border-bottom: 1px solid black;
+				padding: 0.5rem;
+				text-align: left;
+			}
+			/* Specific adjustments for the characters table alignment if possible, 
+			   but generic center/left logic is a safe baseline. */ 
 		</style>
 	</head>
 	<body>
