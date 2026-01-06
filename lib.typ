@@ -71,11 +71,17 @@
   }
 
   let title-block(title) = {
-    set text(size: 1.5em, weight: "bold")
-    set align(center)
-    v(1em)
-    title
-    v(1em)
+    // Use HTML element for HTML target (invisible in PDF)
+    html.elem("h1", title)
+
+    // Use standard styling for PDF (hide if target is html to avoid duplication)
+    if sys.inputs.at("target", default: none) != "html" {
+      set text(size: 1.5em, weight: "bold")
+      set align(center)
+      v(1em)
+      title
+      v(1em)
+    }
   }
   title-block(
     (

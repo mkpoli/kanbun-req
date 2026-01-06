@@ -1,5 +1,12 @@
 ---
-import Doc from "../../main.typ";
+import { Typst } from "astro-typst/src/components";
+
+const typstInput = {
+	mainFilePath: "main.typ",
+	inputs: {
+		target: "html",
+	},
+};
 ---
 
 <html lang="en">
@@ -72,6 +79,6 @@ import Doc from "../../main.typ";
 		</style>
 	</head>
 	<body>
-		<Doc/>
+		<Typst input={typstInput} target="html" />
 	</body>
 </html>
