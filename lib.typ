@@ -17,7 +17,6 @@
 #let r(content) = {
   html.frame(block(width: 45em, content))
 }
-#show figure: it => r(it)
 
 /// Information Box
 #let i(body) = {

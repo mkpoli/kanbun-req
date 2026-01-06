@@ -1,4 +1,4 @@
-#import "./lib.typ": doc, g, i, ruby
+#import "./lib.typ": doc, g, i, r, ruby
 #import "hundouk/src/lib.typ": kanbun
 #let archaism = not ("archaism" in sys.inputs and sys.inputs.archaism == "false")
 
@@ -37,6 +37,7 @@
   appendices: include "sections/appendices.typ",
 )
 
+#show figure: it => r(it)
 #set heading(numbering: "1.")
 
 この文書は、PDF版が#link("https://github.com/mkpoli/kanbun-req")[GitHub上]（#link("https://github.com/mkpoli/kanbun-req/releases/latest")）に配布され、HTML版が#link("https://kanbun-req.mkpo.li/")にて公開されている。意見、訂正等は#link("https://github.com/mkpoli/kanbun-req/issues")[GitHubレポジトリのIssues]また#link("https://github.com/mkpoli/kanbun-req/pulls")[Pull Request]にて議論するものとする。
