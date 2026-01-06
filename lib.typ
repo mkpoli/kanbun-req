@@ -14,17 +14,24 @@
   ref(label("glossary:" + term))
 }
 
+#let r(content) = {
+  html.frame(block(width: 45em, content))
+}
+#show figure: it => r(it)
+
 /// Information Box
 #let i(body) = {
-  block(
-    fill: rgb("#7be0ff28"),
-    stroke: rgb("#ccc") + 1pt,
-    inset: 1em,
-    {
-      [註 Notice]
-      linebreak()
-      body
-    },
+  r(
+    block(
+      fill: rgb("#7be0ff28"),
+      stroke: rgb("#ccc") + 1pt,
+      inset: 1em,
+      {
+        [註 Notice]
+        linebreak()
+        body
+      },
+    ),
   )
 }
 
