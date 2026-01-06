@@ -167,7 +167,7 @@ The PDF version of this document is distributed on #link("https://github.com/mkp
 
 == ベタ組とアキ組 / Solid Setting and Fixed Spacing Setting
 
-一般的な日本語組版は、#g("ベタ組")を基本にするのに対し、訓点漢文の組版はベタ組の他に、#g("アキ組")も常用される。
+一般的な日本語組版は、#g("ベタ組")を基本にするのに対し、訓点漢文の組版はベタ組の他に、#g("アキ組")も常用される。ベタ組では、漢字と漢字の字間を開けずに、そのまま文字の外枠を接続させる。一方、アキ組では漢字が中心となり、漢字と漢字の間は等距離に一定のスペースを開けて配置される。
 
 #let 登鸛鵲楼 = "白日依リテ[レ]山ニ盡キ，黃河入リテ[レ]海ニ流ル。欲シ[二]窮メント[一]千里ノ目ヲ，更ニ上ル一層ノ樓。"
 #grid(
@@ -192,6 +192,121 @@ The PDF version of this document is distributed on #link("https://github.com/mkp
     ),
   ),
 )
+
+#figure(
+  caption: "ベタ組とアキ組の外枠の差異",
+
+  context {
+    set text(
+      40pt,
+      font: "Noto Serif CJK JP",
+      top-edge: "bounds",
+      bottom-edge: "bounds",
+    )
+    grid(
+      columns: 2,
+      grid(
+        columns: 3,
+        column-gutter: 20pt,
+        {
+          let glyph-box(c, w, h, font-size: 1em) = {
+            let b = text(size: font-size, c)
+            box(stroke: blue + 0.5pt, width: w, height: h, align(center + horizon, b))
+          }
+
+          box(
+            stroke: orange + 0.5pt,
+            outset: (bottom: -0.08em),
+            grid(
+              columns: (0.5em, 0.5em, 0.5em, 0.5em),
+              rows: (0.5em, 0.5em, auto),
+              align: center + horizon,
+
+              grid.cell(x: 0, y: 0, rowspan: 2, glyph-box("せ", 0.5em, 0.5em, font-size: 0.5em)),
+              grid.cell(x: 1, y: 0, colspan: 2, rowspan: 2, glyph-box("爲", 1em, 1em)),
+              move(
+                dy: 0.25em,
+                grid.cell(x: 3, y: 0, align: bottom, rowspan: 2, glyph-box("な", 0.5em, 0.5em, font-size: 0.5em)),
+              ),
+
+              grid.cell(x: 1, y: 2, align: right + top, {
+                glyph-box(
+                  stack(
+                    dir: ttb,
+                    spacing: -0.35em,
+                    "一",
+                    "レ",
+                  ),
+                  0.5em,
+                  auto,
+                  font-size: 0.5em,
+                )
+              }),
+              grid.cell(x: 3, y: 2, align: left + top, {
+                move(
+                  dy: -0.25em,
+                  glyph-box("サ", 0.5em, 0.5em, font-size: 0.5em),
+                )
+              }),
+            ),
+          )
+        },
+      ),
+
+      grid(
+        columns: 3,
+        column-gutter: 20pt,
+        {
+          let glyph-box(c, w, h, font-size: 1em) = {
+            let b = text(size: font-size, c)
+            box(stroke: blue + 0.5pt, width: w, height: h, align(center + horizon, b))
+          }
+
+          box(
+            stroke: orange + 0.5pt,
+            height: 2em,
+            width: 2em,
+            grid(
+              columns: (0.5em, 0.5em, 0.5em, 0.5em),
+              rows: (0.5em, 0.5em, 0.5em, 0.5em),
+
+              grid.cell(x: 0, y: 1, rowspan: 2, align: center + horizon, glyph-box(
+                "せ",
+                0.5em,
+                0.5em,
+                font-size: 0.5em,
+              )),
+              grid.cell(x: 1, y: 1, colspan: 2, rowspan: 2, glyph-box("爲", 1em, 1em)),
+              grid.cell(x: 3, y: 1, rowspan: 2, align: center + horizon, glyph-box(
+                "な",
+                0.5em,
+                0.5em,
+                font-size: 0.5em,
+              )),
+
+              grid.cell(x: 1, y: 3, align: right + top, {
+                glyph-box(
+                  stack(
+                    dir: ttb,
+                    spacing: -0.35em,
+                    "一",
+                    "レ",
+                  ),
+                  0.5em,
+                  auto,
+                  font-size: 0.5em,
+                )
+              }),
+              grid.cell(x: 3, y: 3, align: left + top, {
+                glyph-box("サ", 0.5em, 0.5em, font-size: 0.5em)
+              }),
+            ),
+          )
+        },
+      ),
+    )
+  },
+) <fig:akibeta>
 
 == 縦組と横組 / Vertical and Horizontal Writing Mode
 
