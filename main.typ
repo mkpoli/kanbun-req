@@ -67,6 +67,104 @@ The PDF version of this document is distributed on #link("https://github.com/mkp
 
 = 文字配置 / Character Placement
 
+訓点漢文の組版においては、一般的な日本語の組版と同様、@fig:jp-char\のように赤い枠で囲まれた字面と、青い枠で囲まれた外枠があり、基本的には正方形の外枠を基準に文字が配置される。
+
+#figure(
+  caption: "日本語組版における文字の構造",
+
+  context {
+    set text(
+      40pt,
+      font: "Noto Serif CJK JP",
+      top-edge: "bounds",
+      bottom-edge: "bounds",
+    )
+    grid(
+      columns: 3,
+      column-gutter: 20pt,
+      {
+        let b = box(stroke: red + 0.5pt, width: 0.94em, outset: (right: -0.0025em))[心]
+        let c = box(stroke: blue + 0.5pt, height: 1em, width: 1em, align(center + horizon)[#b])
+        c
+      },
+      {
+        let b = box(stroke: red + 0.5pt, width: 0.50em, outset: (left: 0.1em, right: 0.007em))[ノ]
+        let c = box(stroke: blue + 0.5pt, height: 1em, width: 1em, align(center + horizon)[#b])
+        c
+      },
+      {
+        let b = box(stroke: red + 0.5pt, outset: (left: -0.125em, right: -0.1em))[あ]
+        let c = box(stroke: blue + 0.5pt, height: 1em, width: 1em, align(center + horizon)[#b])
+        c
+      },
+    )
+  },
+) <fig:jp-char>
+
+訓点漢文においては、１つの漢字が中心となって１つの基本ユニットとなり、それぞれの要素が漢字を中心に配置され、オレンジ枠で囲まれているように、長方形または正方形の外枠を持つ。
+
+#figure(
+  caption: "訓点漢文の基本単位",
+
+  context {
+    set text(
+      40pt,
+      font: "Noto Serif CJK JP",
+      top-edge: "bounds",
+      bottom-edge: "bounds",
+    )
+    grid(
+      columns: 3,
+      column-gutter: 20pt,
+      {
+        let glyph-box(c, w, h, font-size: 1em) = {
+          let b = text(size: font-size, c)
+          box(stroke: blue + 0.5pt, width: w, height: h, align(center + horizon, b))
+        }
+
+        box(
+          stroke: orange + 0.5pt,
+          outset: (bottom: -0.08em),
+          grid(
+            columns: (0.5em, 0.5em, 0.5em, 0.5em),
+            rows: (0.5em, 0.5em, auto),
+            align: center + horizon,
+
+            grid.cell(x: 0, y: 0, rowspan: 2, glyph-box("せ", 0.5em, 0.5em, font-size: 0.5em)),
+            grid.cell(x: 1, y: 0, colspan: 2, rowspan: 2, glyph-box("爲", 1em, 1em)),
+            move(
+              dy: 0.25em,
+              grid.cell(x: 3, y: 0, align: bottom, rowspan: 2, glyph-box("な", 0.5em, 0.5em, font-size: 0.5em)),
+            ),
+
+            grid.cell(x: 1, y: 2, align: right + top, {
+              glyph-box(
+                stack(
+                  dir: ttb,
+                  spacing: -0.35em,
+                  "一",
+                  "レ",
+                ),
+                0.5em,
+                auto,
+                font-size: 0.5em,
+              )
+            }),
+            grid.cell(x: 3, y: 2, align: left + top, {
+              move(
+                dy: -0.25em,
+                glyph-box("サ", 0.5em, 0.5em, font-size: 0.5em),
+              )
+            }),
+          ),
+        )
+      },
+    )
+  },
+) <fig:kanbun-unit>
+
+
+
 == アキ組とベタ組 / Akigumi and Betagumi
 
 一般的な日本語組版は、#g("ベタ組")を基本にするのに対し、訓点漢文の組版はベタ組の他に、#g("アキ組")も常用される。
