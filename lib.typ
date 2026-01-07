@@ -1,5 +1,5 @@
 #import "@preview/rubby:0.10.2": get-ruby
-#import "@preview/scaffolder:0.2.1": get-page-margins
+#import "@preview/scaffolder:0.2.1": get-page-margins, scaffolding
 #let ruby = get-ruby()
 
 #let g(term) = context {
@@ -60,6 +60,7 @@
       #document.title
     ],
     numbering: "1",
+    foreground: if sys.inputs.at("print", default: "false") == "true" { none } else { scaffolding() },
   )
 
   set par(

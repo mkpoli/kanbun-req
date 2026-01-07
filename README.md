@@ -38,12 +38,12 @@ wget -O fonts/HaranoAjiGothic-Bold.otf https://github.com/trueroad/HaranoAjiFont
 
 近代活字風ドキュメント
 ```bash
-typst compile main.typ --font-path ./fonts kbreq-planschrift.pdf --features html
+typst compile main.typ --font-path ./fonts --input print=true kbreq-planschrift.pdf --features html
 ```
 
 原ノ味明朝ドキュメント
 ```bash
-typst compile main.typ --font-path ./fonts --input archaism=false kbreq-haranoaji.pdf --features html
+typst compile main.typ --font-path ./fonts --input archaism=false --input print=true kbreq-haranoaji.pdf --features html
 ```
 
 #### HTMLドキュメント
