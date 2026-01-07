@@ -324,29 +324,30 @@ The PDF version of this document is distributed on #link("https://github.com/mkp
  疑ウラクハ[二]是レ地上ノ霜カト[一]。
  舉[レ]ゲテ頭ヲ望ム[二]山月ヲ[一]，
   低[レ]レテ頭ヲ思フ[二]故鄕ヲ[一]。"
-#grid(
-  columns: 2,
-  figure(
-    caption: "縦組の「静夜思」",
-    gap: 2em,
-    kanbun(
-      height: 12em,
-      靜夜思,
-      tight: false,
-      use-unicode-kanbun: false,
+#r[
+  #grid(
+    columns: 2,
+    figure(
+      caption: "縦組の「静夜思」",
+      gap: 2em,
+      kanbun(
+        height: 12em,
+        靜夜思,
+        tight: false,
+        use-unicode-kanbun: false,
+      ),
     ),
-  ),
-  figure(
-    caption: "横組の「静夜思」",
-    gap: 2em,
-    kanbun(
-      靜夜思,
-      writing-direction: ltr,
-      use-unicode-kanbun: false,
+    figure(
+      caption: "横組の「静夜思」",
+      gap: 2em,
+      kanbun(
+        靜夜思,
+        writing-direction: ltr,
+        use-unicode-kanbun: false,
+      ),
     ),
-  ),
-)
-
+  )
+]
 == 振り仮名と送り仮名 / Furigana and Okurigana
 
 == 返点 / Kaeriten
