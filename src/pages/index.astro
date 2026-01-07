@@ -104,6 +104,14 @@ const typstInput: TypstDocInput = {
 				padding: 0.5rem;
 				text-align: left;
 			}
+			/* Fix for glossary figures */
+			td figure {
+				display: inline-block;
+				margin: 0;
+			}
+			td figure > p {
+				display: inline;
+			}
 			.author {
 				text-align: center;
 				font-size: 1.1rem;
