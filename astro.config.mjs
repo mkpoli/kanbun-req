@@ -9,6 +9,7 @@ export default defineConfig({
 		typst({
 			target: "html",
 			htmlMode: "text",
+			fontArgs: [{ fontPaths: ["./fonts"] }],
 		}),
 	],
 });
