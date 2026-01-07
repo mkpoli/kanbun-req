@@ -31,10 +31,10 @@ jobs:
           wget -O fonts/HaranoAjiGothic-Bold.otf https://github.com/trueroad/HaranoAjiFonts/raw/refs/heads/master/HaranoAjiGothic-Bold.otf
 
       - name: Compile PDF (Planschrift)
-        run: typst compile main.typ --font-path ./fonts --input commit=${{ github.sha }} kbreq-planschrift.pdf
+        run: typst compile main.typ --font-path ./fonts --input commit=${{ github.sha }} kbreq-planschrift.pdf --features html
 
       - name: Compile PDF (Harano Aji)
-        run: typst compile main.typ --font-path ./fonts --input commit=${{ github.sha }} --input archaism=false kbreq-haranoaji.pdf
+        run: typst compile main.typ --font-path ./fonts --input commit=${{ github.sha }} --input archaism=false kbreq-haranoaji.pdf --features html
 
       - name: Upload PDF files
         uses: actions/upload-artifact@v4
