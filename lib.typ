@@ -1,5 +1,5 @@
 #import "@preview/rubby:0.10.2": get-ruby
-
+#import "@preview/scaffolder:0.2.1": get-page-margins
 #let ruby = get-ruby()
 
 #let g(term) = context {
@@ -19,17 +19,30 @@
 }
 
 /// Information Box
-#let i(body) = {
+#import "@preview/fontawesome:0.6.0": *
+
+/// Information Box
+#let i(body) = context {
   r(
     block(
-      fill: rgb("#7be0ff28"),
-      stroke: rgb("#ccc") + 1pt,
+      fill: rgb("#e6f7ff"),
+      stroke: luma(200) + 1pt,
       inset: 1em,
-      {
-        [註 Notice]
-        linebreak()
-        body
-      },
+      radius: 0.5em,
+      width: page.width - get-page-margins().left - get-page-margins().right,
+      stack(
+        spacing: 0.5em,
+        grid(
+          columns: (auto, 1fr),
+          column-gutter: 0.5em,
+          row-gutter: 1em,
+          align: horizon,
+          text(fill: rgb("#0074d9"), size: 1.25em, fa-circle-info()),
+          text(weight: "bold", fill: rgb("#0074d9"))[註 / Notice],
+
+          none, body,
+        ),
+      ),
     ),
   )
 }
