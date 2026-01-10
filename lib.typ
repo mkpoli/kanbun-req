@@ -1,5 +1,6 @@
 #import "@preview/rubby:0.10.2": get-ruby
 #import "@preview/scaffolder:0.2.1": get-page-margins, scaffolding
+#import "hundouk/src/lib.typ": kanbun
 #let ruby = get-ruby()
 
 #let g(term) = context {
