@@ -559,10 +559,11 @@ The PDF version of this document is distributed on #link("https://github.com/mkp
   }),
 ) <fig:yoko-dir>]
 
-#grid(
+#r(grid(
   columns: 2,
   figure-tate-direction, figure-yoko-direction,
-)
+))
+
 == 振り仮名と送り仮名 / Furigana and Okurigana
 
 == 返点 / Kaeriten
