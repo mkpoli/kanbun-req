@@ -318,7 +318,7 @@ The PDF version of this document is distributed on #link("https://github.com/mkp
 
 == 縦組と横組 / Vertical and Horizontal Writing Mode
 
-訓点漢文は基本的に#g("縦組")を採用するが、組版環境の制約などによっては#g("横組")を採用する場合もある。
+訓点漢文は基本的に組方向として#g("縦組")を採用するが、組版環境の制約などによっては#g("横組")を採用する場合もある。
 
 #let 靜夜思 = "床前看[二]ル月光ヲ[一]，
  疑ウラクハ[二]是レ地上ノ霜カト[一]。
@@ -348,6 +348,221 @@ The PDF version of this document is distributed on #link("https://github.com/mkp
     ),
   )
 ]
+
+#import "@preview/cetz:0.4.2"
+
+#let 水至清 = "水至ッテ清ケレバ則チ無[レ]シ魚。人至ッテ
+  察ナレバ則チ無[レ]シ徒。冕シテ而前[レ]ニスルハ
+  旒(りゅう)ヲ、所以(ゆえん)蔽[二]フ明ヲ[一]ナリ。黈(とう)纊(こう)シテ
+  充[レ]タスハ耳ヲ、所以(ゆえん)塞[二]グ聡ヲ[一]ナリ。"
+
+#let figure-tate-direction = [#figure(
+  caption: [縦組の組方向\ 〔漢〕東方朔「答客難」],
+  cetz.canvas({
+    import cetz.draw: *
+
+    rect((-3, -3), (3, 3), fill: none, stroke: none, name: "base")
+
+    set-style(stroke: gray + 0.65pt)
+
+    let arrow(..args) = {
+      line(mark: (end: "straight"), ..args)
+    }
+
+    let s-arrow(
+      (x1, y1), // (first-line-x, first-line-start-y)
+      xm, // middle-x
+      (x2, y2), // (last-line-x, last-line-end-y)
+      short-arrow-height: 0.4,
+      overlap-buffer: 0.025,
+      long-arrow-buffer: 0.3,
+    ) = {
+      let start-level = y1 - short-arrow-height
+      let end-level = y2 + short-arrow-height
+      let bezier-height = 0.75 * (xm - x1)
+
+      arrow((x1, y1), (x1, start-level))
+      bezier(
+        (x1, start-level + overlap-buffer),
+        (xm, start-level + overlap-buffer),
+        (x1, start-level + bezier-height),
+        (xm, start-level + bezier-height),
+      )
+      arrow((x2, end-level), (x2, y2))
+      arrow((xm, start-level), (xm, y2 - long-arrow-buffer))
+      line((xm, y2 - long-arrow-buffer - overlap-buffer), (xm, end-level))
+      let bezier-height-top = calc.abs(0.75 * (x2 - xm))
+      bezier(
+        (xm, end-level - overlap-buffer),
+        (x2, end-level - overlap-buffer),
+        (xm, end-level + bezier-height-top),
+        (x2, end-level + bezier-height-top),
+      )
+    }
+
+    let line-1-x = 1.5
+    let line-2-x = 0.5
+    let line-3-x = -0.53
+    let line-4-x = -1.5
+
+    let line-top-y = -2.2
+    let line-bottom-y = 2.5
+
+
+    let above-length = 0.6
+    let start-above-offset = 4.2
+    let start-above-length = (line-top-y + line-bottom-y) / 2
+    arrow((line-1-x + above-length, line-top-y + start-above-offset), (line-1-x + above-length, start-above-length))
+    s-arrow(
+      (line-1-x, line-top-y),
+      line-2-x + above-length,
+      (line-2-x, line-bottom-y),
+    )
+    s-arrow(
+      (line-2-x, line-top-y),
+      line-3-x + above-length,
+      (line-3-x, line-bottom-y),
+    )
+    s-arrow(
+      (line-3-x, line-top-y),
+      line-4-x + above-length,
+      (line-4-x, line-bottom-y),
+    )
+
+    content("base", [
+      #block(
+        width: 10em,
+      )[
+        #show regex("[^\p{P}]"): box.with(stroke: blue + 0.25pt, width: 1em, height: 1em)
+        #kanbun(
+          水至清,
+          use-unicode-kanbun: false,
+        )
+      ]
+    ])
+  }),
+) <fig:tate-direction>]
+
+
+#let figure-yoko-direction = [#figure(
+  caption: [横組の組方向\ 〔漢〕東方朔「答客難」],
+  cetz.canvas({
+    import cetz.draw: *
+
+    rect((-3, -3), (3, 3), fill: none, stroke: none, name: "base")
+
+    set-style(stroke: gray + 0.65pt)
+
+    let arrow(..args) = {
+      line(mark: (end: "straight"), ..args)
+    }
+
+    let z-arrow(
+      (x1, y1), // end of line N (right)
+      ym, // middle return y
+      (x2, y2), // start of line N+1 (left)
+      short-arrow-width: 0.4,
+      overlap-buffer: 0.05,
+      long-arrow-buffer: 0.3,
+    ) = {
+      let start-x = x1 + short-arrow-width
+      let end-x = x2 - short-arrow-width
+
+      arrow((x1, y1), (start-x, y1))
+
+      let right-turn-x = start-x + 0.5
+      let left-turn-x = end-x - 0.5
+
+      bezier(
+        (start-x, y1),
+        (right-turn-x, ym),
+        (start-x + 0.5, y1), // cp1
+        (right-turn-x, ym + 0.2), // cp2
+      )
+
+      bezier(
+        (start-x, y1),
+        (end-x, y2),
+        (start-x + 2, y1), // Control point 1: pushes Right
+        (end-x - 2, y2), // Control point 2: approaches from Left
+      )
+
+      arrow((end-x, y2), (x2, y2))
+    }
+
+    let line-start-x = -2
+    let line-end-x = 3.8
+
+    let y1 = 1.525
+    let y2 = 0.5
+    let y3 = -0.525
+    let y4 = -1.55
+
+    let above-height = 0.55
+    let start-above-offset = -0.5
+    let start-above-length = (line-start-x + line-end-x) / 2
+
+    arrow((line-start-x - start-above-offset, y1 + above-height), (start-above-length, y1 + above-height))
+
+    let cr-arrow-v2(
+      (x1, y1),
+      ym,
+      (x2, y2),
+      short-arrow-width: 0.4,
+      overlap-buffer: 0.05,
+      long-arrow-buffer: 0.3,
+    ) = {
+      let start-x = x1 + short-arrow-width
+      let end-x = x2 - short-arrow-width
+      let bezier-width = 0.75 * calc.abs(ym - y1)
+
+      arrow((x1, y1), (start-x, y1))
+
+      bezier(
+        (start-x - overlap-buffer, y1),
+        (start-x - overlap-buffer, ym),
+        (start-x + bezier-width, y1),
+        (start-x + bezier-width, ym),
+      )
+
+      arrow((start-x, ym), (end-x + long-arrow-buffer, ym))
+      line((end-x + long-arrow-buffer + overlap-buffer, ym), (end-x, ym))
+
+      let bezier-width-left = 0.75 * calc.abs(y2 - ym)
+
+      bezier(
+        (end-x + overlap-buffer, ym),
+        (end-x + overlap-buffer, y2),
+        (end-x - bezier-width-left, ym),
+        (end-x - bezier-width-left, y2),
+      )
+
+      arrow((end-x, y2), (x2, y2))
+    }
+
+    cr-arrow-v2((line-end-x, y1), y2 + above-height, (line-start-x, y2))
+    cr-arrow-v2((line-end-x, y2), y3 + above-height, (line-start-x, y3))
+    cr-arrow-v2((line-end-x, y3), y4 + above-height, (line-start-x, y4))
+
+    content("base", [
+      #block(
+        width: 10em,
+      )[
+        #show regex("[^\p{P}]"): box.with(stroke: blue + 0.25pt, width: 1em, height: 1em)
+        #kanbun(
+          writing-direction: ltr,
+          水至清,
+          use-unicode-kanbun: false,
+        )
+      ]
+    ])
+  }),
+) <fig:yoko-dir>]
+
+#grid(
+  columns: 2,
+  figure-tate-direction, figure-yoko-direction,
+)
 == 振り仮名と送り仮名 / Furigana and Okurigana
 
 == 返点 / Kaeriten
