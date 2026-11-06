@@ -32,6 +32,7 @@ const typstInput: TypstDocInput = {
 		<meta property="twitter:title" content="訓点漢文組版要件 / Requirements for Annotated Kanbun Text Layout" />
 		<meta property="twitter:description" content="訓点漢文の組版にあたって求められる事項について説明する文書 / Requirements for Annotated Kanbun Text Layout" />
 		
+		<script defer src="https://scripts.mkpo.li/switcher.js"></script>
 		<link rel="canonical" href="https://kanbun-req.mkpo.li/" />
 		<title>訓点漢文組版要件 / Requirements for Annotated Kanbun Text Layout</title>
 		<style is:global>
@@ -54,6 +55,11 @@ const typstInput: TypstDocInput = {
 				text-decoration: none;
 			}
 			.typst-frame { margin: auto }
+			site-switcher { color-scheme: light; }
+			site-switcher > a[href="/"] {
+				color: inherit;
+				text-decoration: none;
+			}
 
 			/* Heading Styles */
 			h1 {
@@ -124,6 +130,20 @@ const typstInput: TypstDocInput = {
 	<body>
 		{/* @ts-ignore: htmlMode is not in the type definition but is supported by the renderer */}
 		<Typst input={typstInput} htmlMode="text" target="html" />
+		<script>
+			// Make the Japanese title a link home, wrapped by the site switcher.
+			const title = document.querySelector("h1");
+			const text = title?.firstChild;
+			if (title && text?.nodeType === Node.TEXT_NODE) {
+				const switcher = document.createElement("site-switcher");
+				switcher.setAttribute("current", "kanbun-req");
+				const home = document.createElement("a");
+				home.href = "/";
+				switcher.append(home);
+				title.insertBefore(switcher, text);
+				home.append(text);
+			}
+		</script>
 		<script>
 			// Inline SVG images to allow CSS styling
 			document.addEventListener("DOMContentLoaded", () => {
